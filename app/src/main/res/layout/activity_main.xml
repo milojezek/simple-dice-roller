@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="mainViewModel"
+            type="com.example.tordiceroller.main.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <ImageView
+            android:id="@+id/imageView_6d"
+            android:layout_width="230dp"
+            android:layout_height="230dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/image_6d"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/imageView_12d"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_6d"
+            app:srcCompat="@drawable/image_12d" />
+
+        <TextView
+            android:id="@+id/textView_dices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#3F51B5"
+            android:textSize="60sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_12d"
+            tools:text="@{mainViewModel.numberOfDicesText}" />
+
+        <ImageView
+            android:id="@+id/imageView_plus"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_dices"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView_dices"
+            app:layout_constraintTop_toTopOf="@+id/textView_dices"
+            app:srcCompat="@drawable/image_plus"
+            android:onClick="@{() -> mainViewModel.plusOneDice()}" />
+
+        <ImageView
+            android:id="@+id/imageView_minus"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_dices"
+            app:layout_constraintEnd_toStartOf="@+id/textView_dices"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView_dices"
+            app:srcCompat="@drawable/image_minus"
+            android:onClick="@{() -> mainViewModel.minusOneDice()}" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
